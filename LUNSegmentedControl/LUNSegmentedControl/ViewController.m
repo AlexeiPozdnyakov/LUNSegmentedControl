@@ -22,11 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.segmentedControl.transitionStyle = LUNSegmentedControlTransitionStyleFade;
+    self.segmentedControl.currentState = 1;
+    [self.segmentedControl reloadData];
 }
 
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+}
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self segmentedControl:self.segmentedControl didScrollWithXOffset:0];
 }
 
 - (NSArray<UIColor *> *)segmentedControl:(LUNSegmentedControl *)segmentedControl gradientColorsForStateAtIndex:(NSInteger)index {

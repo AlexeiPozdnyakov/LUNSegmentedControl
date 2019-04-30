@@ -51,7 +51,6 @@
     return self;
 }
 - (void)baseInit {
-    self.currentState = 0;
     self.clipsToBounds = YES;
     self.layer.masksToBounds = NO;
     self.stateViews = [[NSMutableArray alloc] init];
@@ -67,8 +66,7 @@
 #pragma mark - Layout
 - (void)layoutSubviews {
     [super layoutSubviews];
-    [self layoutIfNeeded];
-    self.viewWasLayoutSubviews = YES;
+    self.viewWasLayoutSubviews = NO;
     if (!self.layoutDependentValuesWasUpdated) {
         [self updateLayoutDependentValues];
     }
@@ -728,6 +726,7 @@
     }
 }
 - (void)updateLayoutDependentValues {
+    self.currentState = 0;
     self.layoutDependentValuesWasUpdated = YES;
 }
 
@@ -835,13 +834,13 @@
     [self setCurrentState:currentState animated:NO];
 }
 - (void)setCurrentState:(NSInteger)currentState animated:(BOOL)animated {
+    _currentState = currentState;
     if (!self.dataSource) {
         NSLog(@"Warning! Data source of segmented control:%@ wasn't set. In order to use segmented control set its data source.",self);
         return ;
     }
     NSAssert(currentState < self.statesCount && currentState >= 0, @"Unable to set state %li. Segmented control has only %li states from 0 to %li.",(long)currentState, (long)self.statesCount, (long)(self.statesCount-1));
     if (!animated) {
-        _currentState = currentState;
         if (self.shadowsEnabled) {
             [self setupShadowForStateAtIndex:currentState visible:YES animated:NO];
         }

@@ -274,4 +274,6 @@ typedef NS_ENUM(NSUInteger, LUNSegmentedControlBounce) {
  */
 - (void)reloadData;
 
+- (void)baseInit;
+
 @end
