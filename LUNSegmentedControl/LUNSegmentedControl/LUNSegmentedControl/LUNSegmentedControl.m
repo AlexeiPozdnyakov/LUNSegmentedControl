@@ -51,6 +51,7 @@
     return self;
 }
 - (void)baseInit {
+    self.currentState = 0;
     self.clipsToBounds = YES;
     self.layer.masksToBounds = NO;
     self.stateViews = [[NSMutableArray alloc] init];
@@ -727,7 +728,6 @@
     }
 }
 - (void)updateLayoutDependentValues {
-    self.currentState = 0;
     self.layoutDependentValuesWasUpdated = YES;
 }
 
