@@ -10,11 +10,8 @@ Pod::Spec.new do |s|
   s.name = 'LUNSegmentedControl'
   s.version = '0.0.1'
   s.license = 'MIT'
-  s.summary = 'A short description of LUNSegmentedControl.'
   s.homepage = 'https://github.com/AlexeiPozdnyakov/LUNSegmentedControl'
+  s.author = { "Alexei Pozdnyakov" => "pozdnyakov.alexei@gmail.com" }
   s.source = { :git => 'https://github.com/AlexeiPozdnyakov/LUNSegmentedControl.git', :tag => s.version }
-
   s.source_files = 'LUNSegmentedControl/LUNSegmentedControl/LUNSegmentedControl/*.{h,m}'
-
-  s.frameworks = 'CFNetwork'
 end
